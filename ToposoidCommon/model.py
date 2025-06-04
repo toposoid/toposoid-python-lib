@@ -311,6 +311,8 @@ class SurfaceInfo(BaseModel):
    surface: str
    index: int 
 
+class DetectedLanguage(BaseModel):
+    lang: str
 
 ###DOCUMENT-ANALYSIS-SUBSCRIBER###
 class Document(BaseModel):
