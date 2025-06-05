@@ -1,6 +1,6 @@
 from langdetect import detect
 import regex
-from model import DetectedLanguage
+from .model import DetectedLanguage
 
 JAPANNESE_REGEX = regex.compile(r"^.*([ぁ-ん]|[\u30A1-\u30F4]|\p{sc=Han}).*$")
 
