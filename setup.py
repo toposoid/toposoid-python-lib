@@ -27,6 +27,8 @@ setup(
     include_package_data=True,
     install_requires=[
         "PyYAML",
-        "pydantic"
+        "pydantic",
+        "regex",
+        "langdetect"        
     ]
 )
