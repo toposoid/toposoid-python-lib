@@ -456,3 +456,16 @@ class FeatureVectorSearchResult(BaseModel):
     ids:List[FeatureVectorIdentifier]
     similarities:List[float]
     statusInfo:StatusInfo
+
+class PropositionRelation(BaseModel):
+    operator:str 
+    sourceIndex:int 
+    destinationIndex:int
+
+class KnowledgeSentenceSet(BaseModel):
+    premiseList:List[Knowledge]
+    premiseLogicRelation:List[PropositionRelation]
+    claimList:List[Knowledge]
+    claimLogicRelation:List[PropositionRelation]
+
+
