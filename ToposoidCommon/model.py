@@ -16,6 +16,7 @@
 
 from pydantic import BaseModel, ValidationError, field_validator
 from typing import List, Dict
+import regex
 
 #Status Information
 class StatusInfo(BaseModel):
@@ -419,7 +420,7 @@ class FeatureVectorIdentifier(BaseModel):
     def isNotEmptyLang(cls, v):
         if not v:
             raise ValidationError("lang is empty.")
-        if v not in ["ja_JP", "en_US"]:
+        if v not in ["ja_JP", "en_US"] and not regex.search(r"^@@_#[0-9]+"):
             raise ValidationError("lang is invalid.")
         return v
     
