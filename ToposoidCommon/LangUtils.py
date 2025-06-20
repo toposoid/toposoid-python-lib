@@ -3,6 +3,7 @@ import regex
 from .model import DetectedLanguage
 
 JAPANNESE_REGEX = regex.compile(r"^.*([ぁ-ん]|[\u30A1-\u30F4]|\p{sc=Han}).*$")
+ALPHABET_NUMBER_SYMBOL_REGEX = regex.compile(r'^[ -~]+$')
 SPECIAL_SYMBOL_REGEX1 = regex.compile(r"^NO_REFERENCE_[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}_[0-9]+$")
 
 def detectLangage(text: str):
@@ -11,6 +12,8 @@ def detectLangage(text: str):
         return DetectedLanguage(lang="@@_#1")
     elif regex.search(JAPANNESE_REGEX, text):
         return DetectedLanguage(lang="ja_JP")
+    elif regex.search(ALPHABET_NUMBER_SYMBOL_REGEX):
+        return DetectedLanguage(lang="en_US")
     else:
         lang = detect(text)
         if lang == "ja":
