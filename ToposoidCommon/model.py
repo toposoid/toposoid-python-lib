@@ -470,3 +470,14 @@ class KnowledgeSentenceSet(BaseModel):
     claimLogicRelation:List[PropositionRelation]
 
 
+class NormalizedWord(BaseModel):
+    word:str
+
+class SynonymList(BaseModel):
+    synonyms:List[str]
+
+class FeatureVector(BaseModel):
+    vector:List[float]
+
+class SingleImage(BaseModel):
+    url:str
