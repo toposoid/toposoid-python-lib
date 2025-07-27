@@ -420,7 +420,7 @@ class FeatureVectorIdentifier(BaseModel):
     def isNotEmptyLang(cls, v):
         if not v:
             raise ValidationError("lang is empty.")
-        if v not in ["ja_JP", "en_US"] and not regex.search(r"^@@_#[0-9]+"):
+        if v not in ["ja_JP", "en_US"] and not regex.search(r"^@@_#[0-9]+", v):
             raise ValidationError("lang is invalid.")
         return v
     
@@ -470,3 +470,14 @@ class KnowledgeSentenceSet(BaseModel):
     claimLogicRelation:List[PropositionRelation]
 
 
+class NormalizedWord(BaseModel):
+    word:str
+
+class SynonymList(BaseModel):
+    synonyms:List[str]
+
+class FeatureVector(BaseModel):
+    vector:List[float]
+
+class SingleImage(BaseModel):
+    url:str
