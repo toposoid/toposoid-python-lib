@@ -18,7 +18,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ToposoidCommon',
-    version="0.7-SNAPSHOT",
+    version="0.7",
     description="",
     author='Makoto Kubodera',
     packages=find_packages(),
