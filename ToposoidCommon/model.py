@@ -112,11 +112,12 @@ com.ideal.linked.toposoid.knowledgebase.model
 '''
 class LocalContext(BaseModel):
     lang: str
-    namedEntity: str
+    namedEntity: dict
     rangeExpressions: dict
     categories: dict
     domains: dict
     knowledgeFeatureReferences:List[KnowledgeFeatureReference]
+    properNouns: dict
 
 '''
 ref. https://github.com/toposoid/toposoid-knowledgebase-model
@@ -138,6 +139,9 @@ class PredicateArgumentStructure(BaseModel):
     parallelType:str
     nodeType:int
     morphemes:List[str]
+    caseGroupType: int
+    casePhraseId: str
+    casePhrase: str
 
 '''
 ref. https://github.com/toposoid/toposoid-knowledgebase-model
@@ -360,6 +364,8 @@ class FeatureVectorIdentifier(BaseModel):
     lang:str
     superiorType:int
     nonSentenceType: int
+    caseGroupType:int
+
 
     @field_validator("superiorId", mode='before')
     def parseSuperiorId(cls, v):
@@ -395,6 +401,12 @@ class FeatureVectorIdentifier(BaseModel):
     def parseNonSentenceType(cls, v):
         if not isinstance(v, int):            
             raise ValidationError("nonSentenceType is not IntType.")
+        return v
+
+    @field_validator("caseGroupType", mode='before')
+    def parseNonSentenceType(cls, v):
+        if not isinstance(v, int):            
+            raise ValidationError("caseGroupType is not IntType.")
         return v
 
 
@@ -434,6 +446,12 @@ class FeatureVectorIdentifier(BaseModel):
     def isNotEmptyNonSentenceType(cls, v):
         if v < 0:
             raise ValidationError("nonSentenceType is invalid.")
+        return v
+
+    @field_validator("caseGroupType")
+    def isNotEmptyCaseGroupType(cls, v):
+        if v < 0:
+            raise ValidationError("caseGroupType is invalid.")
         return v
 
 #For searching feature vectors.
