@@ -1,0 +1,14 @@
+FROM python:3.10
+
+WORKDIR /app
+ARG TARGET_BRANCH
+ENV DEPLOYMENT=local
+
+RUN apt-get update && apt-get upgrade -y \
+&& apt install git unzip -y \
+&& curl -LsSf https://astral.sh/uv/install.sh | sh \
+&& git clone https://github.com/toposoid/toposoid-python-lib.git \
+&& cd toposoid-python-lib \
+&& git fetch origin ${TARGET_BRANCH} \
+&& git checkout ${TARGET_BRANCH}
+
