@@ -112,7 +112,7 @@ com.ideal.linked.toposoid.knowledgebase.model
 '''
 class LocalContext(BaseModel):
     lang: str
-    namedEntity: dict
+    namedEntities: dict
     rangeExpressions: dict
     categories: dict
     domains: dict
