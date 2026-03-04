@@ -210,18 +210,22 @@ class MatchedFeatureInfo(BaseModel):
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
 '''
-class CoveredPropositionNode(BaseModel):    
-    terminalId:str
-    terminalSurface:str
-    terminalUrl:str
+class MatchedKnowledgeNode(BaseModel):
+    sentenceId:str 
+    nodeId:str 
+    caseNameOnEdge:str 
+    isDenialWord:bool 
+    nodeType: int    
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
 '''
-class CoveredPropositionEdge(BaseModel):
-    sourceNode:CoveredPropositionNode
-    destinationNode:CoveredPropositionNode
+class CoveredPropositionNode(BaseModel):    
+    terminalId:str
+    terminalSurface:str
+    terminalUrl:str
+    matchedKnowledgeNodes:List[MatchedKnowledgeNode]
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -232,6 +236,14 @@ class KnowledgeBaseSideInfo(BaseModel):
     sentenceId:str
     featureInfoList:List[MatchedFeatureInfo]
 
+'''
+ref. https://github.com/toposoid/toposoid-deduction-protocol-model
+com.ideal.linked.toposoid.protocol.model.base
+'''
+class CoveredPropositionEdge(BaseModel):
+    sourceNode:CoveredPropositionNode
+    destinationNode:CoveredPropositionNode
+    knowledgeBaseSideInfoList:List[KnowledgeBaseSideInfo]
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -242,7 +254,7 @@ class CoveredPropositionResult(BaseModel):
     propositionId:str 
     sentenceId:str
     coveredPropositionEdges:List[CoveredPropositionEdge]
-    knowledgeBaseSideInfo:List[KnowledgeBaseSideInfo]
+    #knowledgeBaseSideInfo:List[KnowledgeBaseSideInfo]
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -252,7 +264,7 @@ class DeductionResult(BaseModel):
     status:bool 
     coveredPropositionResults:List[CoveredPropositionResult]
     havePremiseInGivenProposition:bool = False
-
+    deductionPhaseType:int = 1
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
@@ -267,8 +279,19 @@ class AnalyzedSentenceObject(BaseModel):
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
 '''
+class DeductionConfiguration(BaseModel):
+    actionModeType:int 
+    llmModel:str
+    llmModelHyperParameters:Dict[str, str] 
+    maxTargetKnowledgeCount:int=10
+
+'''
+ref. https://github.com/toposoid/toposoid-deduction-protocol-model
+com.ideal.linked.toposoid.protocol.model.base
+'''
 class AnalyzedSentenceObjects(BaseModel):
     analyzedSentenceObjects:List[AnalyzedSentenceObject]
+    deductionConfiguration:DeductionConfiguration
 
 class Propositions(BaseModel):
     propositions: List[List[Knowledge]]
