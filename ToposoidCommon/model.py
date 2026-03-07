@@ -282,7 +282,7 @@ com.ideal.linked.toposoid.protocol.model.base
 class DeductionConfiguration(BaseModel):
     actionModeType:int 
     llmModel:str
-    llmModelHyperParameters:Dict[str, str] 
+    llmModelHyperParameters:Dict[str, str] = {}
     maxTargetKnowledgeCount:int=10
 
 '''
