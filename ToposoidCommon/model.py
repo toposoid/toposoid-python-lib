@@ -306,6 +306,7 @@ class InputSentence(BaseModel):
     claim:List[Knowledge]
 
 
+
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.parser
@@ -322,6 +323,7 @@ com.ideal.linked.toposoid.protocol.model.parser
 class InputSentenceForParser(BaseModel):
     premise:List[KnowledgeForParser] 
     claim:List[KnowledgeForParser]
+    actionModeType:int
 
 
 '''

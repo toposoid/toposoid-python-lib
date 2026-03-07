@@ -62,6 +62,7 @@ class DeductionPhaseType(Enum):
     DEDUCTION_SENTENCE_BASE = 3
 
 class ActionModeType(Enum):
+    UNSPECIFIED = 0
     REGISTRATION_MODE = 1
     DEDUCTION_MODE = 2
     
