@@ -65,4 +65,8 @@ class ActionModeType(Enum):
     UNSPECIFIED = 0
     REGISTRATION_MODE = 1
     DEDUCTION_MODE = 2
-    
+
+class AuthenticityType(Enum):
+    FALSE = 0
+    TRUE = 1
+    UNKNOWN = 2
