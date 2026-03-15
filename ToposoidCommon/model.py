@@ -262,10 +262,12 @@ com.ideal.linked.toposoid.protocol.model.base
 '''
 class DeductionResult(BaseModel):
     status:bool 
+    authenticityType:int
     coveredPropositionResults:List[CoveredPropositionResult]
+    evidenceKnowledgeList:List[KnowledgeBaseSideInfo]
     havePremiseInGivenProposition:bool = False
     deductionPhaseType:int = 1
-    authenticityType:int = 2
+    
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
