@@ -235,6 +235,7 @@ class KnowledgeBaseSideInfo(BaseModel):
     propositionId:str
     sentenceId:str
     featureInfoList:List[MatchedFeatureInfo]
+    deductionUnits:List[str]
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -250,7 +251,7 @@ ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
 '''
 class CoveredPropositionResult(BaseModel):
-    deductionUnit:str
+    #deductionUnit:str
     propositionId:str 
     sentenceId:str
     coveredPropositionEdges:List[CoveredPropositionEdge]
