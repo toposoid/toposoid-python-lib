@@ -211,11 +211,13 @@ ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
 '''
 class MatchedKnowledgeNode(BaseModel):
+    propositionId:str
     sentenceId:str 
     nodeId:str 
     caseNameOnEdge:str 
     isDenialWord:bool 
-    nodeType: int    
+    nodeType: int   
+    featureInfoList:List[MatchedFeatureInfo] 
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -226,6 +228,8 @@ class CoveredPropositionNode(BaseModel):
     terminalSurface:str
     terminalUrl:str
     matchedKnowledgeNodes:List[MatchedKnowledgeNode]
+    isConfirmed:bool
+    deductionUnit:str
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
