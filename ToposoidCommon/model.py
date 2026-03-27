@@ -247,8 +247,7 @@ com.ideal.linked.toposoid.protocol.model.base
 '''
 class CoveredPropositionEdge(BaseModel):
     sourceNode:CoveredPropositionNode
-    destinationNode:CoveredPropositionNode
-    knowledgeBaseSideInfoList:List[KnowledgeBaseSideInfo]
+    destinationNode:CoveredPropositionNode    
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
