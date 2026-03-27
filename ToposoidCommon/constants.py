@@ -70,3 +70,9 @@ class AuthenticityType(Enum):
     FALSE = 0
     TRUE = 1
     UNKNOWN = 2
+
+class RelationMatchState(Enum):
+    NOT_MATCHED_BOTH = 0    
+    MATCHED_SOURCE_NODE_ONLY = 1
+    MATCHED_TARGET_NODE_ONLY = 2
+    MATCHED_BOTH = 3
