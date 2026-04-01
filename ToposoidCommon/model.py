@@ -253,12 +253,12 @@ class CoveredPropositionEdge(BaseModel):
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
 com.ideal.linked.toposoid.protocol.model.base
 '''
-class CoveredPropositionResult(BaseModel):
-    #deductionUnit:str
-    propositionId:str 
-    sentenceId:str
-    coveredPropositionEdges:List[CoveredPropositionEdge]
-    #knowledgeBaseSideInfo:List[KnowledgeBaseSideInfo]
+#class CoveredPropositionResult(BaseModel):
+#    #deductionUnit:str
+#    propositionId:str 
+#    sentenceId:str
+#    coveredPropositionEdges:List[CoveredPropositionEdge]
+#    #knowledgeBaseSideInfo:List[KnowledgeBaseSideInfo]
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -267,7 +267,7 @@ com.ideal.linked.toposoid.protocol.model.base
 class DeductionResult(BaseModel):
     status:bool 
     authenticityType:int
-    coveredPropositionResults:List[CoveredPropositionResult]
+    coveredPropositionEdges:List[CoveredPropositionEdge]
     evidenceKnowledgeList:List[KnowledgeBaseSideInfo]
     havePremiseInGivenProposition:bool = False
     deductionPhaseType:int = 1
