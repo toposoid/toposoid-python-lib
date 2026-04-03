@@ -303,6 +303,10 @@ class AnalyzedSentenceObjects(BaseModel):
 class Propositions(BaseModel):
     propositions: List[List[Knowledge]]
 
+class VerifyingEdges(BaseModel):
+    propositionId:str 
+    sentenceId:str
+    coveredPropositionEdges:List[CoveredPropositionEdge] 
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
