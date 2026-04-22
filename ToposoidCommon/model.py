@@ -105,7 +105,6 @@ class KnowledgeFeatureReference(BaseModel):
     source:str = ""
     featureInputType:int = 0    
     extentText:str = "{}"
-    similarity:float = -1.0 
 
 '''
 ref. https://github.com/toposoid/toposoid-knowledgebase-model
