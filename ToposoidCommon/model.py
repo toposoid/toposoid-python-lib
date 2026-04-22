@@ -217,7 +217,7 @@ class MatchedKnowledgeNode(BaseModel):
     caseNameOnEdge:str 
     isDenialWord:bool 
     nodeType: int   
-    featureInfoList:List[MatchedFeatureInfo] 
+    featureInfo:MatchedFeatureInfo 
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
