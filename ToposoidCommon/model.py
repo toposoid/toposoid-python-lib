@@ -105,6 +105,7 @@ class KnowledgeFeatureReference(BaseModel):
     source:str = ""
     featureInputType:int = 0    
     extentText:str = "{}"
+    similarity:float = 0.0 
 
 '''
 ref. https://github.com/toposoid/toposoid-knowledgebase-model
@@ -217,7 +218,7 @@ class MatchedKnowledgeNode(BaseModel):
     caseNameOnEdge:str 
     isDenialWord:bool 
     nodeType: int   
-    featureInfoList:List[MatchedFeatureInfo] 
+    featureInfo:MatchedFeatureInfo 
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
