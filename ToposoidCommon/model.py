@@ -535,3 +535,6 @@ class FeatureVector(BaseModel):
 
 class SingleImage(BaseModel):
     url:str
+
+class SingleTable(BaseModel):
+    url:str
