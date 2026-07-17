@@ -54,6 +54,12 @@ class ImageReference(BaseModel):
 
 class TableReference(BaseModel):
     reference:Reference
+    separator:str = ""
+    skipRows:List[int] = [] 
+    isExcel:bool = False
+    multiHeaderRows:int = 1 
+    sheetName:String:str = "" 
+
 
 '''
 ref. https://github.com/toposoid/toposoid-knowledgebase-model
@@ -538,3 +544,8 @@ class SingleImage(BaseModel):
 
 class SingleTable(BaseModel):
     url:str
+    separator:str = ""
+    skipRows:List[int] = [] 
+    isExcel:bool = False
+    multiHeaderRows:int = 1 
+    sheetName:String:str = "" 
