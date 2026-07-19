@@ -548,4 +548,4 @@ class SingleTable(BaseModel):
     skipRows:List[int] = [] 
     isExcel:bool = False
     multiHeaderRows:int = 1 
-    sheetName:String:str = "" 
+    sheetName:str = "" 
