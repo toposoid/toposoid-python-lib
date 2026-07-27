@@ -29,6 +29,7 @@ setup(
         "PyYAML",
         "pydantic",
         "regex",
-        "langdetect"
+        "langdetect",
+        "fastapi"
     ]
 )
