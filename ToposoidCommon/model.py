@@ -573,19 +573,3 @@ class UploadContentContext(BaseModel):
     ):
         return cls(featureType=featureType, reourceUrl=reourceUrl)
 
-class UploadResult(BaseModel):
-    uploadedUrl: str 
-    @model_validator(mode="before")
-    @classmethod
-    def validate_to_json(cls, data: Any) -> Any:
-        if isinstance(data, str):
-            return json.loads(data)
-        return data
-
-    # 💡 フォームデータからこのモデルを生成するためのヘルパー関数を追加
-    @classmethod
-    def as_form(
-        cls,
-        uploadedUrl: str = Form(...)
-    ):
-        return cls(reourceUrl=uploadedUrl)    
