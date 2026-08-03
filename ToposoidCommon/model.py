@@ -57,8 +57,8 @@ class TableReference(BaseModel):
     reference:Reference
     skipHeaderRows:int = 0
     skipRowList:List[int] = []
-    multiHeaderRows:int = 1 
-    sheetName:str = "" 
+    multiHeaderRowsForExcel:int = 1 
+    sheetNameForExcel:str = "" 
 
 
 '''
@@ -546,7 +546,7 @@ class SingleTable(BaseModel):
     url:str
     skipHeaderRows:int = 0
     skipRowList:List[int] = []
-    multiHeaderRows:int = 1 
-    sheetName:str = "" 
+    multiHeaderRowsForExcel:int = 1 
+    sheetNameForExcel:str = "" 
 
 
