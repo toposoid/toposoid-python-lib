@@ -14,11 +14,10 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from pydantic import BaseModel, ValidationError, field_validator, model_validator
+from pydantic import BaseModel, ValidationError, field_validator
 from typing import List, Dict, Any
 import regex
 import json
-from fastapi import Form
 
 #Status Information
 class StatusInfo(BaseModel):
@@ -56,9 +55,8 @@ class ImageReference(BaseModel):
 
 class TableReference(BaseModel):
     reference:Reference
-    separator:str = ""
-    skipRows:List[int] = [] 
-    isExcel:bool = False
+    skipHeaderRows:int = 0
+    skipRowList:List[int] = []
     multiHeaderRows:int = 1 
     sheetName:str = "" 
 
@@ -546,30 +544,9 @@ class SingleImage(BaseModel):
 
 class SingleTable(BaseModel):
     url:str
-    separator:str = ""
-    skipRows:List[int] = [] 
-    isExcel:bool = False
+    skipHeaderRows:int = 0
+    skipRowList:List[int] = []
     multiHeaderRows:int = 1 
     sheetName:str = "" 
 
-#python-only
-class UploadContentContext(BaseModel):
-    featureType: int
-    reourceUrl: str
-
-    @model_validator(mode="before")
-    @classmethod
-    def validate_to_json(cls, data: Any) -> Any:
-        if isinstance(data, str):
-            return json.loads(data)
-        return data
-
-    # 💡 フォームデータからこのモデルを生成するためのヘルパー関数を追加
-    @classmethod
-    def as_form(
-        cls,
-        featureType: int = Form(...),
-        reourceUrl: str = Form(...)
-    ):
-        return cls(featureType=featureType, reourceUrl=reourceUrl)
 
