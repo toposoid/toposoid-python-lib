@@ -549,4 +549,14 @@ class SingleTable(BaseModel):
     multiHeaderRowsForExcel:int = 1 
     sheetNameForExcel:str = "" 
 
+class RegisteredImageContentResult(BaseModel):
+    knowledgeForImage:KnowledgeForImage
+    statusInfo:StatusInfo
+    
+class RegisteredTableContentResult(BaseModel):
+    knowledgeForTable:KnowledgeForTable
+    statusInfo:StatusInfo
 
+class RegisteredDocumentContentResult(BaseModel):
+    document:Document
+    statusInfo:StatusInfo
