@@ -110,7 +110,7 @@ class KnowledgeFeatureReference(BaseModel):
     url:str = ""
     source:str = ""
     featureInputType:int = 0    
-    extentText:str = "{}"
+    featureExtendedFields:Dict[str, str] = {}
 
 '''
 ref. https://github.com/toposoid/toposoid-knowledgebase-model
@@ -541,6 +541,10 @@ class FeatureVector(BaseModel):
 
 class SingleImage(BaseModel):
     url:str
+    x:int = 0
+    y:int = 0
+    width:int = 0 
+    height:int = 0
 
 class SingleTable(BaseModel):
     url:str
