@@ -57,7 +57,7 @@ class TableReference(BaseModel):
     reference:Reference
     skipHeaderRows:int = 0
     skipRowList:List[int] = []
-    multiHeaderRowsForExcel:int = 1 
+    multiHeaderRows:int = 1 
     sheetNameForExcel:str = "" 
 
 
@@ -550,7 +550,7 @@ class SingleTable(BaseModel):
     url:str
     skipHeaderRows:int = 0
     skipRowList:List[int] = []
-    multiHeaderRowsForExcel:int = 1 
+    multiHeaderRows:int = 1 
     sheetNameForExcel:str = "" 
 
 class RegisteredImageContentResult(BaseModel):
