@@ -541,17 +541,11 @@ class FeatureVector(BaseModel):
 
 class SingleImage(BaseModel):
     url:str
-    x:int = 0
-    y:int = 0
-    width:int = 0 
-    height:int = 0
+    hyperParameters:Dict[str, str] = {}
 
 class SingleTable(BaseModel):
     url:str
-    skipHeaderRows:int = 0
-    skipRowList:List[int] = []
-    multiHeaderRows:int = 1 
-    sheetNameForExcel:str = "" 
+    hyperParameters:Dict[str, str] = {}
 
 class RegisteredImageContentResult(BaseModel):
     knowledgeForImage:KnowledgeForImage
