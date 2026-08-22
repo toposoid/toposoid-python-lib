@@ -541,11 +541,9 @@ class FeatureVector(BaseModel):
 
 class SingleImage(BaseModel):
     url:str
-    hyperParameters:Dict[str, str] = {}
 
 class SingleTable(BaseModel):
     url:str
-    hyperParameters:Dict[str, str] = {}
 
 class RegisteredImageContentResult(BaseModel):
     knowledgeForImage:KnowledgeForImage
