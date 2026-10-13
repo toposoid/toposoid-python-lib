@@ -557,32 +557,32 @@ class RegisteredDocumentContentResult(BaseModel):
     document:Document
     statusInfo:StatusInfo
 
-class InputImageForSearch(BaseModel)
-    imageReference: ImageReference,
+class InputImageForSearch(BaseModel):
+    imageReference: ImageReference
     lang:str
     similarityThreshold:float
 
-class InputSentenceForSearch(BaseModel)
+class InputSentenceForSearch(BaseModel):
     sentence:str
     lang:str
     similarityThreshold:float
 
-class InputTableForSearch(BaseModel)
+class InputTableForSearch(BaseModel):
     tableReference: TableReference
     lang:str
     similarityThreshold:float
 
-class SearchResultNode(BaseModel)
+class SearchResultNode(BaseModel):
     id:str
     sentence:str 
     sentenceType:int 
     similarity:float
     url:str
 
-class SearchResultEdge(BaseModel)
+class SearchResultEdge(BaseModel):
     source:SearchResultNode
     target:SearchResultNode
     value:str
 
-class SearchResultEdges(BaseModel)
+class SearchResultEdges(BaseModel):
     analyzedEdges:List[SearchResultEdge]
