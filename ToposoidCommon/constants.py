@@ -76,3 +76,35 @@ class RelationMatchState(Enum):
     MATCHED_SOURCE_NODE_ONLY = 1
     MATCHED_TARGET_NODE_ONLY = 2
     MATCHED_BOTH = 3
+
+#--------------------------------------------
+# Used only with Python And Javascript libraries.
+#--------------------------------------------
+class TableFileType(Enum):
+    """
+        Ref.
+            - toposoid-file-upload-facade-web
+            - toposoid-mcp-web
+            - toposoid-ui
+    """
+    NOT_APPLICABLE = 0
+    TEXT = 1
+    EXCEL = 2
+    EXCEL_OLD = 3
+
+class UploadStatusType(Enum):
+    """
+        Ref.
+            - toposoid-file-upload-facade-web
+            - toposoid-mcp-web
+            - toposoid-ui
+    """
+    UNSPECIFIED = 0
+    OK = 1
+    FOUND_INFECTED_FILE = 2
+    SCAN_ERROR = 3
+    FILE_FORMAT_ERROR = 4
+    ORIGINAL_FILE_TRANSFER_ERROR = 5
+    CONVERT_ERROR = 6
+    CONVERT_FILE_TRANSFER_ERROR = 7 
+    SYSTEM_ERROR = -1

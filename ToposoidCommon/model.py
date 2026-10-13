@@ -559,17 +559,14 @@ class RegisteredDocumentContentResult(BaseModel):
 
 class InputImageForSearch(BaseModel):
     imageReference: ImageReference
-    lang:str
     similarityThreshold:float
 
 class InputSentenceForSearch(BaseModel):
     sentence:str
-    lang:str
     similarityThreshold:float
 
 class InputTableForSearch(BaseModel):
     tableReference: TableReference
-    lang:str
     similarityThreshold:float
 
 class SearchResultNode(BaseModel):
@@ -586,3 +583,44 @@ class SearchResultEdge(BaseModel):
 
 class SearchResultEdges(BaseModel):
     analyzedEdges:List[SearchResultEdge]
+
+
+#--------------------------------------------
+# Used only with Python And Javascript libraries.
+#--------------------------------------------
+class UploadContentContext(BaseModel):
+    """
+        Ref.
+            - toposoid-file-upload-facade-web
+            - toposoid-mcp-web
+            - toposoid-ui
+    """
+    featureType: int
+    url: str
+    
+    @model_validator(mode="before")
+    @classmethod
+    def validate_to_json(cls, data: Any) -> Any:
+        if isinstance(data, str):
+            return json.loads(data)
+        return data
+
+    # 💡 フォームデータからこのモデルを生成するためのヘルパー関数を追加
+    @classmethod
+    def as_form(
+        cls,
+        featureType: int = Form(...),
+        url: str = Form("")
+    ):
+        return cls(featureType=featureType, url=url)
+
+class UploadResult(BaseModel):
+    """
+        Ref.
+            - toposoid-file-upload-facade-web
+            - toposoid-mcp-web
+            - toposoid-ui
+    """
+    id: str
+    url: str 
+    status: int
