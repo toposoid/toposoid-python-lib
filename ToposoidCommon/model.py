@@ -14,7 +14,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from pydantic import BaseModel, ValidationError, field_validator, model_validator
+from pydantic import BaseModel, ValidationError, field_validator, model_validator, Field
 from typing import List, Dict, Any
 import regex
 import json
@@ -563,28 +563,55 @@ class InputImageForSearch(BaseModel):
     similarityThreshold:float
 
 class InputSentenceForSearch(BaseModel):
-    sentence:str
-    similarityThreshold:float
+    sentence:str = Field(description="Text to be searched")
+    similarityThreshold:float= Field(description="Similarity threshold. Values ​​equal to or greater than the specified value (0 to 1) are included in the search.")
 
 class InputTableForSearch(BaseModel):
     tableReference: TableReference
     similarityThreshold:float
 
 class SearchResultNode(BaseModel):
-    id:str
-    sentence:str 
-    sentenceType:int 
-    similarity:float
-    url:str
+    id:str = Field(description="Unique identifier of the node.")
+    sentence:str = Field(description="Text identified by an id.") 
+    sentenceType:int = Field(description="Sentence attribute (premise or claim).") 
+    similarity:float = Field(description="Similarity score to the search target")
+    url:str = Field(description="URL for identifying similar data when the search target is an image or table data.")
 
 class SearchResultEdge(BaseModel):
-    source:SearchResultNode
-    target:SearchResultNode
-    value:str
+    source:SearchResultNode = Field(description="Source node")
+    target:SearchResultNode = Field(description="Target node")
+    value:str = Field(description="Relationship")
 
 class SearchResultEdges(BaseModel):
-    analyzedEdges:List[SearchResultEdge]
+    analyzedEdges:List[SearchResultEdge] = Field(description="List of analyzed edges (relationships)")
 
+
+'''
+ref. https://github.com/toposoid/toposoid-deduction-protocol-model
+com.ideal.linked.toposoid.protocol.model.frontend
+'''
+class AnalyzedNode(BaseModel):
+    sentence: str 
+    assignment: bool 
+    reasons: List[str]
+    status: str 
+    isNegativeSentence: bool
+
+'''
+ref. https://github.com/toposoid/toposoid-deduction-protocol-model
+com.ideal.linked.toposoid.protocol.model.frontend
+'''
+class AnalyzedEdge(BaseModel):
+    source:AnalyzedNode
+    target:AnalyzedNode 
+    value:str    
+
+'''
+ref. https://github.com/toposoid/toposoid-deduction-protocol-model
+com.ideal.linked.toposoid.protocol.model.frontend
+'''
+class AnalyzedEdges(BaseModel):
+    analyzedEdges:List[AnalyzedEdge]
 
 #--------------------------------------------
 # Used only with Python And Javascript libraries.
