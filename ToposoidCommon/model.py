@@ -225,6 +225,8 @@ class MatchedKnowledgeNode(BaseModel):
     isDenialWord:bool 
     nodeType: int   
     featureInfo:MatchedFeatureInfo 
+    deductionUnit:str
+    isNegativeMeaning:bool = False
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
@@ -236,7 +238,6 @@ class CoveredPropositionNode(BaseModel):
     terminalUrl:str
     matchedKnowledgeNodes:List[MatchedKnowledgeNode]
     isConfirmed:bool
-    deductionUnit:str
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
