@@ -248,6 +248,7 @@ class KnowledgeBaseSideInfo(BaseModel):
     sentenceId:str
     featureInfoList:List[MatchedFeatureInfo]
     deductionUnits:List[str]
+    isNegativeMeaning:bool = False
 
 '''
 ref. https://github.com/toposoid/toposoid-deduction-protocol-model
