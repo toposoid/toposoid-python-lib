@@ -67,9 +67,10 @@ class ActionModeType(Enum):
     DEDUCTION_MODE = 2
 
 class AuthenticityType(Enum):
-    FALSE = 0
-    TRUE = 1
-    UNKNOWN = 2
+    INSUFFICIENT = 0
+    SUPPORTED = 1
+    REFUTED = 2
+    CONFLICTING = 3  
 
 class RelationMatchState(Enum):
     NOT_MATCHED_BOTH = 0    
