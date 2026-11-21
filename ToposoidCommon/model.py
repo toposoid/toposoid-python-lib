@@ -592,8 +592,8 @@ com.ideal.linked.toposoid.protocol.model.frontend
 '''
 class AnalyzedNode(BaseModel):
     sentence: str 
-    assignment: bool 
-    reasons: List[str]
+    assignment: int //com.ideal.linked.toposoid.common.AuthenticityType
+    reasons: List[KnowledgeBaseSideInfo]
     status: str 
     isNegativeSentence: bool
 
