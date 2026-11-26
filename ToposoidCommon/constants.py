@@ -71,12 +71,16 @@ class AuthenticityType(Enum):
     SUPPORTED = 1
     REFUTED = 2
     CONFLICTING = 3  
+    NO_EFFECT = 4
+    OPTIMUM_TRUE = 5
+    OPTIMUM_FALSE = 6
 
 class RelationMatchState(Enum):
     NOT_MATCHED_BOTH = 0    
     MATCHED_SOURCE_NODE_ONLY = 1
     MATCHED_TARGET_NODE_ONLY = 2
     MATCHED_BOTH = 3
+
 
 #--------------------------------------------
 # Used only with Python And Javascript libraries.
